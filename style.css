@@ -1,0 +1,161 @@
+:root {
+    --primary: black;
+    --secondary: aqua;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: cursive;
+    background-color: var(--secondary);
+}
+
+.select-box {
+    position: relative;
+    width: 26rem;
+    margin: 7rem auto;
+}
+
+.select-box input {
+    width: 100%;
+    padding: 1rem .6rem;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+}
+
+input[type="tel"] {
+    border-radius: 0 .5rem .5rem 0;
+}
+
+.select-box input.no:focus {
+    border: .4rem solid var(--primary);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.selected-option {
+    background-color: yellow;
+    border-radius: 5rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selected-option div {
+    width: 6rem;
+    position: relative;
+    right: 10px;
+    padding: 0 2.8rem 0.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.selected-option div::after {
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+
+    margin-right: 7px;
+    width: .5rem;
+    height: .5rem;
+    border-right: .12rem solid var(--primary);
+    border-bottom: .12rem solid var(--primary);
+
+    transition: .5s;
+}
+
+.selected-option div.active::after {
+    transform: translateY(-50%) rotate(225deg);
+}
+
+.select-box .options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: green;
+    border-radius: 1rem;
+    display: none; /* Initially hide the dropdown */
+    z-index: 1; /* Ensure dropdown is above other elements */
+}
+
+.select-box .options.active {
+    display: block; /* Show the dropdown when active */
+}
+
+
+
+.options .search-box {
+    color: yellow;
+    background-color: var(--primary);
+    border-radius: .5rem .5rem 0 0;
+    padding: 1rem; /* Add padding for better appearance */
+}
+
+.options .search-box ol {
+    list-style: none;
+    max-height: 20rem; /* Adjust max-height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 0; /* Remove default list padding */
+}
+
+.options .search-box li {
+    padding: 1rem; /* Add padding to list items */
+    border-bottom: 1px solid #ccc; /* Add a border between list items */
+    cursor: pointer;
+}
+
+.options .search-box li:last-child {
+    border-bottom: none; /* Remove border from the last list item */
+}
+
+.options .search-box li:hover {
+    background-color: #f2f2f2; /* Highlight on hover */
+}
+.select-box .options ol {
+    list-style: none;
+    max-height: 23rem;
+    overflow-y: auto; /* Enable vertical scrollbar */
+}
+
+.select-box .options ol::-webkit-scrollbar {
+    width: 0.6rem;
+}
+
+.select-box .options ol::-webkit-scrollbar-thumb {
+    height: 3rem;
+    background-color: #f2f2f2;
+    border-radius: 0.4rem;
+}
+
+.select-box .options ol::-webkit-scrollbar-track {
+    width: 0.4rem;
+}
+
+.select-box .options li.option {
+    padding: 1rem;
+    display: flex; /* Enable flexbox layout */
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: center; /* Vertically center items */
+    cursor: pointer;
+}
+
+.select-box .options li.option .country-name {
+    margin-left: 0; /* Remove default margin */
+}
+
+.select-box .options li.option strong {
+    margin-right: 0; /* Remove default margin */
+}
+
+.select-box ol li:not(:last-child){
+    border-bottom: .13rem solid red;
+}
